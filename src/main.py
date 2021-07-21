@@ -19,12 +19,18 @@ def parseData():
             file_content = content[content.index("<item>") : content.index("</item>")]
             # print(file_content)
 
-            title = file_content[
-                file_content.index("<title>") + 7 : file_content.index("</title>")
-            ]
+            try:
+                title = file_content[
+                    file_content.index("<title>") + 7 : file_content.index("</title>")
+                ]
+            except ValueError:
+                title = ""
             print(title)
 
-            file_content = file_content[file_content.index("</title>") :]
+            try:
+                file_content = file_content[file_content.index("</title>") :]
+            except ValueError:
+                file_content = file_content[file_content.index("<title/>") :]
             text = file_content[
                 file_content.index("<content:encoded>")
                 + 26 : file_content.index("</content:encoded>")
