@@ -38,7 +38,7 @@ def parseData():
                 file_content.index("<wp:post_date_gmt>")
                 + 18 : file_content.index("</wp:post_date_gmt>")
             ]
-            # print(dateTime+ "\n")
+            # print(dateTime + "\n")
 
             file_content = file_content[file_content.index("</wp:post_date_gmt>") :]
 
@@ -91,7 +91,7 @@ def makeDayOneEntries():
         dateTime = dateTime[:-1]
         # print(dateTime)
 
-        # print('dayone2 -d="'+ dateTime+ '" new<files/'+ str(i+1)+ '.txt')
+        # print('dayone2 -d="' + dateTime + '" new<files/' + str(i + 1) + ".txt")
         os.system('dayone2 -d="' + dateTime + '" new<files/' + str(i + 1) + ".txt")
 
 
