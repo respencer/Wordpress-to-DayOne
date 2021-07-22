@@ -86,19 +86,18 @@ def parseData():
 
 
 def makeDayOneEntries():
-    this_dir = os.getcwd()
-    # print(this_dir)
-    entries = os.listdir(this_dir + "/files")
+    file_path = os.getcwd() + "/files/"
+    file_names = os.listdir(file_path)
 
     input_date_file = open("dateTime.txt", "r")
 
-    for i in range(len(entries)):
+    for file in sorted(file_names):
         dateTime = input_date_file.readline()
         dateTime = dateTime[:-1]
         # print(dateTime)
 
-        # print('dayone2 -d="' + dateTime + '" new<files/' + str(i + 1) + ".txt")
-        os.system('dayone2 -d="' + dateTime + '" new<files/' + str(i + 1) + ".txt")
+        # print('dayone2 -d="' + dateTime + '" new < ' + file_path + file)
+        os.system('dayone2 -d="' + dateTime + '" new < ' + file_path + file)
 
 
 if __name__ == "__main__":
