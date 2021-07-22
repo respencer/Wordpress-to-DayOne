@@ -36,7 +36,6 @@ def parseData():
                 + 26 : file_content.index("</content:encoded>")
                 - 3
             ]
-            text = text.replace("#", "")
             # print(text)
 
             file_content = file_content[file_content.index("</content:encoded>") :]
