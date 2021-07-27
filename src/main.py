@@ -26,17 +26,15 @@ def parseData():
         # print(dateTime + "\n")
 
         tags = []
-        try:
+        if "tags" in item:
             for tag in item.tags:
                 if tag["scheme"] == "post_tag":
                     tags.append(tag["term"])
                     tag_count += 1
             # print(tags)
 
-            tags_string = " ".join(["#" + i for i in tags])
-            # print(tags_string)
-        except AttributeError:
-            pass
+        tags_string = " ".join(["#" + i for i in tags])
+        # print(tags_string)
 
         output_text_file_content = title + "\n\n" + text + "\n\n" + tags_string
         # print(output_text_file_content)
